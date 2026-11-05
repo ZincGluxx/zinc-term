@@ -1,5 +1,5 @@
-cosmic-terminal = Terminál COSMIC
-comment = Emulátor terminálu pre pracovné prostredie COSMIC
+cosmic-terminal = Terminál Zinc
+comment = Emulátor terminálu pre pracovné prostredie Zinc
 keywords = Príkaz;Shell;Terminál;Konzola;
 new-terminal = Nový terminál
 
@@ -110,6 +110,6 @@ split-vertical = Rozdeliť vertikálne
 pane-toggle-maximize = Prepnúť maximalizáciu
 menu-color-schemes = Farebné schémy...
 menu-settings = Nastavenia...
-menu-about = O Termináli COSMIC...
+menu-about = O Termináli Zinc...
 repository = Repozitár
 support = Podpora

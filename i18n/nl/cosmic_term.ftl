@@ -1,4 +1,4 @@
-cosmic-terminal = COSMIC Terminal
+cosmic-terminal = Zinc Terminal
 new-terminal = Nieuwe terminal
 
 # Context Pages
@@ -108,7 +108,7 @@ split-vertical = Verticaal splitsen
 pane-toggle-maximize = Gemaximaliseerd
 menu-color-schemes = Kleurenpaletten…
 menu-settings = Instellingen…
-menu-about = Over COSMIC Terminal…
+menu-about = Over Zinc Terminal…
 support = Ondersteuning
 repository = Broncode
 cancel = Annuleren
@@ -124,7 +124,7 @@ passwords-title = Wachtwoorden
 add-password = Wachtwoord toevoegen
 password-input = Wachtwoord
 password-input-description = Beschrijving
-comment = Terminalemulator voor COSMIC
+comment = Terminalemulator voor Zinc
 keywords = Commando;Shell;Terminal;CLI;
 copy-or-sigint = Kopiëren of SIGINT
 disable = Uitschakelen

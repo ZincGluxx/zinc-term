@@ -1,5 +1,5 @@
 cosmic-terminal = Терминал
-comment = Эмулятор терминала для среды COSMIC
+comment = Эмулятор терминала для среды Zinc
 keywords = Команда;Оболочка;Терминал;Консоль;
 new-terminal = Новый терминал
 
@@ -109,7 +109,7 @@ split-vertical = Разделение по вертикали
 pane-toggle-maximize = Развернуть/восстановить область
 menu-color-schemes = Цветовые схемы...
 menu-settings = Параметры...
-menu-about = О Терминале COSMIC...
+menu-about = О Терминале Zinc...
 support = Поддержка
 repository = Репозиторий
 clear-scrollback = Очистить вывод команд

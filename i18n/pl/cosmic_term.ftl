@@ -1,5 +1,5 @@
-cosmic-terminal = Terminal COSMIC
-comment = Emulator terminala dla środowiska COSMIC
+cosmic-terminal = Terminal Zinc
+comment = Emulator terminala dla środowiska Zinc
 keywords = Cli;WierszPoleceń;Powłoka;Terminal;
 new-terminal = Nowy terminal
 
@@ -112,7 +112,7 @@ split-vertical = Podziel w pionie
 pane-toggle-maximize = Maksymalizuj lub przywróć panel
 menu-color-schemes = Schemat kolorów...
 menu-settings = Ustawienia…
-menu-about = O Terminalu COSMIC...
+menu-about = O Terminalu Zinc...
 menu-password-manager = Hasła…
 passwords-title = Hasła
 add-password = Dodaj Hasło

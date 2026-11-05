@@ -1,4 +1,4 @@
-cosmic-terminal = Τερματικό COSMIC
+cosmic-terminal = Τερματικό Zinc
 new-terminal = Νέο τερματικό
 
 # Context Pages
@@ -110,7 +110,7 @@ split-vertical = Κάθετος διαχωρισμός
 pane-toggle-maximize = Μεγιστοποίηση ή επαναφορά προβολής
 menu-color-schemes = Χρωματικοί συνδυασμοί...
 menu-settings = Ρυθμίσεις...
-menu-about = Σχετικά με το Τερματικό COSMIC...
+menu-about = Σχετικά με το Τερματικό Zinc...
 repository = Αποθετήριο
 support = Υποστήριξη
 cancel = Ακύρωση
@@ -123,7 +123,7 @@ add-password = Προσθήκη κωδικού πρόσβασης
 menu-password-manager = Κωδικοί πρόσβασης...
 clear-scrollback = Απαλοιφή ιστορικού κύλισης
 open-link = Άνοιγμα συνδέσμου
-comment = Εξομοιωτής τερματικού για το περιβάλλον επιφάνειας εργασίας COSMIC
+comment = Εξομοιωτής τερματικού για το περιβάλλον επιφάνειας εργασίας Zinc
 keyboard-shortcuts = Συντομεύσεις πληκτρολογίου
 keywords = Εντολή;Κέλυφος;Τερματικό;Command;Shell;Terminal;CLI;
 close-window = Κλείσιμο παραθύρου

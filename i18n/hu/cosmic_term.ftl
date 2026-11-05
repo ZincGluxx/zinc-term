@@ -1,5 +1,5 @@
-cosmic-terminal = COSMIC Terminál
-comment = Terminálemulátor a COSMIC asztali környezethez
+cosmic-terminal = Zinc Terminál
+comment = Terminálemulátor a Zinc asztali környezethez
 keywords = parancssor;héj;terminál;CLI;
 new-terminal = Új terminál
 
@@ -112,7 +112,7 @@ split-vertical = Függőleges felosztás
 pane-toggle-maximize = Panel maximalizálása vagy visszaállítása
 menu-color-schemes = Színsémák…
 menu-settings = Beállítások…
-menu-about = A COSMIC Terminál névjegye…
+menu-about = A Zinc Terminál névjegye…
 menu-password-manager = Jelszavak…
 passwords-title = Jelszavak
 add-password = Jelszó hozzáadása

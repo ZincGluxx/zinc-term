@@ -14,8 +14,8 @@ use std::sync::OnceLock;
 use crate::{fl, localize::LANGUAGE_SORTER, shortcuts::Shortcuts};
 
 pub const CONFIG_VERSION: u64 = 1;
-pub const COSMIC_THEME_DARK: &str = "COSMIC Dark";
-pub const COSMIC_THEME_LIGHT: &str = "COSMIC Light";
+pub const COSMIC_THEME_DARK: &str = "Zinc Dark";
+pub const COSMIC_THEME_LIGHT: &str = "Zinc Light";
 
 #[derive(Clone, Copy, Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 pub enum AppTheme {

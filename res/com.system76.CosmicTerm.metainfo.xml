@@ -8,20 +8,20 @@
   <update_contact>jeremy@system76.com</update_contact>
   <url type="homepage">https://github.com/pop-os/cosmic-term</url>
   <url type="bugtracker">https://github.com/pop-os/cosmic-term</url>
-  <name>COSMIC Terminal</name>
-  <summary>Terminal emulator for the COSMIC desktop</summary>
+  <name>Zinc Terminal</name>
+  <summary>Terminal emulator for the Zinc desktop</summary>
   <description>
-    <p>Terminal emulator for the COSMIC desktop</p>
-    <p xml:lang="ar">محاكي طرفي لسطح مكتب COSMIC</p>
-    <p xml:lang="cs">Emulátor terminálu pro pracovní prostředí COSMIC</p>
-    <p xml:lang="pl">Emulator terminala dla pulpitu COSMIC</p>
-    <p xml:lang="hu">Terminálemulátor a COSMIC asztali környezethez</p>
-    <p xml:lang="pt_BR">Emulador de terminal do desktop COSMIC</p>
-    <p xml:lang="pt">Emulador de terminal do desktop COSMIC</p>
-    <p xml:lang="sk">Emulátor terminálu pre pracovné prostredie COSMIC</p>
-    <p xml:lang="es">Emulador de terminal de escritorio COSMIC</p>
-    <p xml:lang="it">Emulatore di terminale di COSMIC</p>
-    <p xml:lang="sv">Terminalemulator för skrivbordsmiljön COSMIC</p>
+    <p>Terminal emulator for the Zinc desktop</p>
+    <p xml:lang="ar">محاكي طرفي لسطح مكتب Zinc</p>
+    <p xml:lang="cs">Emulátor terminálu pro pracovní prostředí Zinc</p>
+    <p xml:lang="pl">Emulator terminala dla pulpitu Zinc</p>
+    <p xml:lang="hu">Terminálemulátor a Zinc asztali környezethez</p>
+    <p xml:lang="pt_BR">Emulador de terminal do desktop Zinc</p>
+    <p xml:lang="pt">Emulador de terminal do desktop Zinc</p>
+    <p xml:lang="sk">Emulátor terminálu pre pracovné prostredie Zinc</p>
+    <p xml:lang="es">Emulador de terminal de escritorio Zinc</p>
+    <p xml:lang="it">Emulatore di terminale di Zinc</p>
+    <p xml:lang="sv">Terminalemulator för skrivbordsmiljön Zinc</p>
   </description>
   <keywords>
     <keyword>Command</keyword>

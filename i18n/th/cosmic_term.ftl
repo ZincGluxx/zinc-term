@@ -1,4 +1,4 @@
-cosmic-terminal = เทอร์มินัล COSMIC
+cosmic-terminal = เทอร์มินัล Zinc
 new-terminal = เทอร์มินัลใหม่
 
 # Context Pages
@@ -108,7 +108,7 @@ split-vertical = แยกแนวตั้ง
 pane-toggle-maximize = ขยายให้ใหญ่สุด
 menu-color-schemes = โทนสี...
 menu-settings = การตั้งค่า...
-menu-about = เกี่ยวกับ เทอร์มินัล COSMIC...
+menu-about = เกี่ยวกับ เทอร์มินัล Zinc...
 cancel = ยกเลิก
 reset-to-default = รีเซ็ตเป็นค่าเริ่มต้น
 type-to-search = พิมพ์เพื่อค้นหา

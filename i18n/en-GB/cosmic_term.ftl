@@ -1,4 +1,4 @@
-cosmic-terminal = COSMIC Terminal
+cosmic-terminal = Zinc Terminal
 new-terminal = New terminal
 
 # Context Pages
@@ -108,7 +108,7 @@ split-vertical = Split vertical
 pane-toggle-maximize = Maximise or restore pane
 menu-color-schemes = Colour schemes...
 menu-settings = Settings...
-menu-about = About COSMIC Terminal...
+menu-about = About Zinc Terminal...
 repository = Repository
 support = Support
 cancel = Cancel

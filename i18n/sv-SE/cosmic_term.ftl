@@ -1,5 +1,5 @@
-cosmic-terminal = COSMIC Terminal
-comment = Terminalemulator för skrivbordsmiljön COSMIC
+cosmic-terminal = Zinc Terminal
+comment = Terminalemulator för skrivbordsmiljön Zinc
 keywords = Kommando;Skal;Terminal;CLI;Konsol;
 new-terminal = Ny terminal
 
@@ -114,7 +114,7 @@ pane-toggle-maximize = Maximera eller återställ delfönster
 clear-scrollback = Töm tillbakarullning
 menu-color-schemes = Färgscheman…
 menu-settings = Inställningar...
-menu-about = Om COSMIC Terminal…
+menu-about = Om Zinc Terminal…
 repository = Källkod
 support = Support
 # Lösenordshanterare

@@ -1,4 +1,4 @@
-cosmic-terminal = COSMIC Terminal
+cosmic-terminal = Zinc Terminal
 new-terminal = Neues Terminal
 
 # Kontextseiten
@@ -108,7 +108,7 @@ split-vertical = Vertikal teilen
 pane-toggle-maximize = Bereich maximieren oder wiederherstellen
 menu-color-schemes = Farbschemen ...
 menu-settings = Einstellungen ...
-menu-about = Über COSMIC Terminal ...
+menu-about = Über Zinc Terminal ...
 repository = Repositorium
 cancel = Abbrechen
 keyboard-shortcuts = Tastenkombinationen
@@ -142,7 +142,7 @@ close-window = Fenster schließen
 copy-or-sigint = Kopieren oder SIGINT
 toggle-fullscreen = Vollbild umschalten
 shortcut-group-zoom = Zoom
-comment = Terminalemulator für den COSMIC Desktop
+comment = Terminalemulator für den Zinc Desktop
 paste-primary = Primär einfügen
 add-another-keybinding = Weitere Tastenbelegung hinzufügen
 shortcut-replace-body = { $binding } ist bereits { $existing } zugeordnet. Durch { $new_action } ersetzen?

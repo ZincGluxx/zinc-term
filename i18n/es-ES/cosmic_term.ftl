@@ -1,5 +1,5 @@
-cosmic-terminal = Terminal COSMIC
-comment = Emulador de terminal de escritorio COSMIC
+cosmic-terminal = Terminal Zinc
+comment = Emulador de terminal de escritorio Zinc
 keywords = Comando;Shell;Terminal;Consola;
 new-terminal = Nuevo terminal
 
@@ -111,6 +111,6 @@ split-vertical = División vertical
 pane-toggle-maximize = Cambiar maximización
 menu-color-schemes = Esquemas de color...
 menu-settings = Ajustes...
-menu-about = Sobre Terminal COSMIC...
+menu-about = Sobre Terminal Zinc...
 repository = Repositorio
 support = Apoyo

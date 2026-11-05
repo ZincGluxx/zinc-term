@@ -1,4 +1,4 @@
-cosmic-terminal = Teirminéal COSMIC
+cosmic-terminal = Teirminéal Zinc
 new-terminal = Teirminéal nua
 
 # Context Pages
@@ -108,7 +108,7 @@ split-vertical = Scoilt ingearach
 pane-toggle-maximize = Uasmhéadaigh nó athchóirigh an phána
 menu-color-schemes = Scéimeanna dathanna...
 menu-settings = Socruithe...
-menu-about = Maidir le COSMIC Teirminéal...
+menu-about = Maidir le Zinc Teirminéal...
 repository = Stór
 support = Tacaíocht
 open-link = Oscail an Nasc
@@ -144,7 +144,7 @@ shortcut-replace-title = Aicearra a athsholáthar?
 tab-activate = Gníomhachtaigh an cluaisín { $number }
 toggle-fullscreen = Scoraigh lánscáileán
 type-to-search = Clóscríobh le cuardach a dhéanamh...
-comment = Aithriseoir teirminéal don deasc COSMIC
+comment = Aithriseoir teirminéal don deasc Zinc
 keywords = Ordú;Blaosc;Teirminéal;CLI;
 copy-link = Cóipeáil Nasc
 tab-new-inherit-working-directory = Úsáideann cluaisíní agus fuinneoga nua an t-eolaire reatha

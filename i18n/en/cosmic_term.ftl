@@ -1,5 +1,5 @@
-cosmic-terminal = COSMIC Terminal
-comment = Terminal emulator for the COSMIC desktop
+cosmic-terminal = Zinc Terminal
+comment = Terminal emulator for the Zinc desktop
 keywords = Command;Shell;Terminal;CLI;
 new-terminal = New terminal
 
@@ -139,7 +139,7 @@ split-vertical = Split vertical
 pane-toggle-maximize = Maximize or restore pane
 menu-color-schemes = Color schemes...
 menu-settings = Settings...
-menu-about = About COSMIC Terminal...
+menu-about = About Zinc Terminal...
 
 # Password Manager
 menu-password-manager = Passwords...
