@@ -151,6 +151,23 @@ fn convert_color(colors: &Colors, color: Color) -> cosmic_text::Color {
     cosmic_text::Color::rgb(rgb.r, rgb.g, rgb.b)
 }
 
+/// Replace a buffer line only when its text, ending, or attributes changed.
+///
+/// `BufferLine::set_text` takes owned values and compares them internally. Check first so
+/// unchanged rows do not need to clone their text or `AttrsList` on every terminal update.
+fn update_buffer_line_if_changed(
+    line: &mut BufferLine,
+    text: &str,
+    attrs_list: &AttrsList,
+) -> bool {
+    let ending = LineEnding::default();
+    if line.text() == text && line.ending() == ending && line.attrs_list() == attrs_list {
+        return false;
+    }
+
+    line.set_text(text, ending, attrs_list.clone())
+}
+
 type TabModel = segmented_button::Model<segmented_button::SingleSelect>;
 
 pub struct TerminalPaneGrid {
@@ -779,6 +796,7 @@ impl Terminal {
         //TODO: use LineDamageBounds
         {
             let buffer = Arc::make_mut(&mut self.buffer);
+            let mut buffer_changed = false;
 
             let mut line_i = 0;
             let mut last_point = None;
@@ -795,16 +813,23 @@ impl Terminal {
 
                 self.regex_matches.clear();
                 {
-                    let mut regex_matches: Vec<_> =
+                    let regex_matches: Vec<_> =
                         visible_regex_match_iter(&term, &mut self.url_regex_search).collect();
-                    self.regex_matches
-                        .extend(regex_matches.drain(..).flat_map(|rm| -> Vec<_> {
-                            HintPostProcessor::new(&term, &mut self.url_regex_search, rm).collect()
-                        }));
+                    for regex_match in regex_matches {
+                        self.regex_matches.extend(HintPostProcessor::new(
+                            &term,
+                            &mut self.url_regex_search,
+                            regex_match,
+                        ));
+                    }
                 }
 
                 let grid = term.grid();
-                for indexed in grid.display_iter() {
+                let renderable_content = term.renderable_content();
+                let selection = renderable_content.selection;
+                let cursor_shape = renderable_content.cursor.shape;
+                let terminal_colors = renderable_content.colors;
+                for indexed in renderable_content.display_iter {
                     if indexed.point.line != last_point.unwrap_or(indexed.point).line {
                         while line_i >= buffer.lines.len() {
                             buffer.lines.push(BufferLine::new(
@@ -814,14 +839,16 @@ impl Terminal {
                                 Shaping::Advanced,
                             ));
                             buffer.set_redraw(true);
+                            buffer_changed = true;
                         }
 
-                        if buffer.lines[line_i].set_text(
-                            text.clone(),
-                            LineEnding::default(),
-                            attrs_list.clone(),
+                        if update_buffer_line_if_changed(
+                            &mut buffer.lines[line_i],
+                            &text,
+                            &attrs_list,
                         ) {
                             buffer.set_redraw(true);
+                            buffer_changed = true;
                         }
                         line_i += 1;
 
@@ -878,13 +905,13 @@ impl Terminal {
 
                     // Change color if cursor
                     if indexed.point == grid.cursor.point
-                        && term.renderable_content().cursor.shape == CursorShape::Block
+                        && cursor_shape == CursorShape::Block
                         && self.is_focused
                     {
                         //Use specific cursor color if requested
-                        if term.colors()[NamedColor::Cursor].is_some() {
+                        if terminal_colors[NamedColor::Cursor].is_some() {
                             fg = bg;
-                            bg = convert_color(term.colors(), Color::Named(NamedColor::Cursor));
+                            bg = convert_color(terminal_colors, Color::Named(NamedColor::Cursor));
                         } else if self.colors[NamedColor::Cursor].is_some() {
                             //Use specific theme cursor color if exists
                             fg = bg;
@@ -910,10 +937,7 @@ impl Terminal {
                     }
 
                     // Change color if selected
-                    if let Some(selection) = &term.selection
-                        && let Some(range) = selection.to_range(&term)
-                        && range.contains(indexed.point)
-                    {
+                    if selection.is_some_and(|range| range.contains(indexed.point)) {
                         //TODO: better handling of selection
                         mem::swap(&mut fg, &mut bg);
                     }
@@ -991,23 +1015,29 @@ impl Terminal {
                     Shaping::Advanced,
                 ));
                 buffer.set_redraw(true);
+                buffer_changed = true;
             }
 
-            if buffer.lines[line_i].set_text(text, LineEnding::default(), attrs_list) {
+            if update_buffer_line_if_changed(&mut buffer.lines[line_i], &text, &attrs_list) {
                 buffer.set_redraw(true);
+                buffer_changed = true;
             }
             line_i += 1;
 
             if buffer.lines.len() != line_i {
                 buffer.lines.truncate(line_i);
                 buffer.set_redraw(true);
+                buffer_changed = true;
             }
 
-            // Shape and trim shape run cache
+            // Shape and trim the shape run cache only when rows changed, rather than on every
+            // update (including cursor-only and selection-only redraws).
             {
                 let mut font_system = font_system().write().unwrap();
                 buffer.shape_until_scroll(font_system.raw(), true);
-                font_system.raw().shape_run_cache.trim(1024);
+                if buffer_changed {
+                    font_system.raw().shape_run_cache.trim(1024);
+                }
             }
         }
 
@@ -1275,5 +1305,68 @@ impl Drop for Terminal {
         if let Err(err) = self.notifier.0.send(Msg::Shutdown) {
             log::warn!("Failed to send shutdown message on dropped terminal: {err}");
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn default_attrs_list() -> AttrsList {
+        AttrsList::new(&Attrs::new().family(Family::Monospace))
+    }
+
+    #[test]
+    fn buffer_line_update_skips_unchanged_content() {
+        let attrs_list = default_attrs_list();
+        let mut line = BufferLine::new(
+            "same",
+            LineEnding::default(),
+            attrs_list.clone(),
+            Shaping::Advanced,
+        );
+
+        assert!(!update_buffer_line_if_changed(
+            &mut line,
+            "same",
+            &attrs_list
+        ));
+    }
+
+    #[test]
+    fn buffer_line_update_replaces_changed_text() {
+        let attrs_list = default_attrs_list();
+        let mut line = BufferLine::new(
+            "old",
+            LineEnding::default(),
+            attrs_list.clone(),
+            Shaping::Advanced,
+        );
+
+        assert!(update_buffer_line_if_changed(&mut line, "new", &attrs_list));
+        assert_eq!(line.text(), "new");
+    }
+
+    #[test]
+    fn buffer_line_update_replaces_changed_attrs() {
+        let attrs_list = default_attrs_list();
+        let mut line = BufferLine::new(
+            "same",
+            LineEnding::default(),
+            attrs_list.clone(),
+            Shaping::Advanced,
+        );
+
+        let mut changed_attrs_list = attrs_list.clone();
+        let span_attrs = Attrs::new().family(Family::Serif);
+        changed_attrs_list.add_span(0..4, &span_attrs);
+
+        assert_ne!(line.attrs_list(), &changed_attrs_list);
+        assert!(update_buffer_line_if_changed(
+            &mut line,
+            "same",
+            &changed_attrs_list
+        ));
+        assert_eq!(line.attrs_list(), &changed_attrs_list);
     }
 }
